@@ -18,8 +18,8 @@ def get_sentiment(text):
 	response = urllib2.urlopen(req)
 	result = response.read()
 	obj = json.loads(result)
-	output_texts = ""
+	score = ""
 	for sentiment_analysis in obj['documents']:
-	    output_texts += 'score: ' + str(sentiment_analysis['score'])+ "\n"
-	return output_texts
+	    score += str(sentiment_analysis['score'])
+	return score
     

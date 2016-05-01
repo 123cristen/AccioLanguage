@@ -12,7 +12,7 @@ app = Flask(__name__)
 def home():
 	return render_template(
 		'index.html',
-		title='AccioLanguage',
+		title='Accio',
 	)
 
 @app.route("/language")
@@ -33,7 +33,7 @@ def keyphrases():
 def sentiment():
 	return render_template(
 		'sentiment.html',
-		title='AccioLanguage | Sentiment Detection',
+		title='Sentiment Detection',
 	)
 
 @app.route("/show_sentiment", methods=['POST'])
@@ -43,8 +43,8 @@ def show_sentiment():
 	result = get_sentiment(text);
 	return render_template(
 		'show_sentiment.html',
-		title='AccioLanguage | Sentiment Detection',
-		outputs = result,
+		title='Sentiment Detection Results',
+		score = result,
 		text = text,
 	)
 
