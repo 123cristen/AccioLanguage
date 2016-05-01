@@ -42,14 +42,13 @@ def sentiment():
 @app.route("/show_sentiment", methods=['POST'])
 def show_sentiment():
 	text = request.form['text_input']
-	result = get_sentiment(text);
+	output = get_sentiment(text);
 	return render_template(
 		'show_sentiment.html',
 		title='Sentiment Detection Results',
-		score = result,
+		score = output,
 		text = text,
 	)
-
 
 @app.route('/keyAnswers', methods=['POST'])
 def getKeyPhrases():
@@ -57,8 +56,9 @@ def getKeyPhrases():
     output = get_keyPhrases(text)
     return render_template(
       'showKeyPhrases.html',
-      title='Key Phrase Results',
-      answers= output,
+      title ='Key Phrase Results',
+      answers = output,
+      text = text,
     )
 
 @app.route('/languageAnswers', methods=['POST'])
@@ -67,8 +67,9 @@ def getLanguage():
     output = get_language(text)
     return render_template(
       'showLanguage.html',
-      title='Language Detection Results',
-      answers= output,
+      title ='Language Detection Results',
+      answers = output,
+      text = text,
     )
 
 if __name__ == "__main__":

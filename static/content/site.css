@@ -4,20 +4,52 @@
 	/*font-family: fantasy;*/
 	/*font-family: Verdana, Arial, Helvetica, sans-serif;*/
 	/*font-family: "Lucida Handwriting", cursive;*/
-	font-family: 'Tangerine', serif;
-	font-size: 50px;
+	/*font-family: 'Bree Serif', serif;*/
+	/*font-size: 50px;*/
+}
+a {
+	font-family: 'Bree Serif', serif;
+	font-size: 20px;
 }
 
+#logo {
+	font-family: 'Tangerine', serif;
+	font-size: 80px;
+	font-color: black;
+}
+.font-effect-shadow-multiple {
+	text-decoration: none;
+}
 a.active {
 	color: green;
+}
+
+a:hover {
+	color: blue;
+	font-style: italic;
 }
 
 .navigation li {
 	display: inline-block;
 }
 
-a:hover {
-	color: blue;
-	font-variant: bold;
+.info {
+	font-family: 'Bree Serif', serif;
+	font-size: 20px;
 }
 
+.input { 
+
+}
+
+.button {
+
+}
+
+.output {
+
+}
+
+.displayinput {
+
+}
