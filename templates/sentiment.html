@@ -9,13 +9,9 @@
 <body>
     <h1>{{ title }}</h1>
     <a href="/">Home</a>
-    <form action='get_sentiment' method="POST">
-    	<p> Text Input </p>
+    <form action='show_sentiment' method="POST">
     	<textarea name="text_input" rows="10" cols="80"></textarea>
-    	<div></div>
+        <div></div>
     	<input type="submit" value="Get Sentiment!">
     </form>	
-    {% if (output != None) %}
-    	<p>{{ outputs }}</p>
-    {% endif %}
 </body>

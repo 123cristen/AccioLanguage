@@ -34,14 +34,19 @@ def sentiment():
 	return render_template(
 		'sentiment.html',
 		title='AccioLanguage | Sentiment Detection',
-		outputs = None,
 	)
 
-@app.route("/get_sentiment", methods=['POST'])
-def get_sentiment():
-	return request.form['text_input']
-
-
+@app.route("/show_sentiment", methods=['POST'])
+def show_sentiment():
+	text = request.form['text_input']
+	#json_input = '{"documents":["text":"'+text+'"]}'
+	result = get_sentiment(text);
+	return render_template(
+		'show_sentiment.html',
+		title='AccioLanguage | Sentiment Detection',
+		outputs = result,
+		text = text,
+	)
 
 if __name__ == "__main__":
 		app.debug = True
