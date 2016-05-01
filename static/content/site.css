@@ -2,14 +2,38 @@
 	text-decoration: none;
 }
 
+#logo {
+
+}
+
 a.active {
 	color: green;
+}
+
+a:hover {
+	color: blue;
 }
 
 .navigation li {
 	display: inline-block;
 }
 
-a:hover {
-	color: blue;
+.info {
+
+}
+
+.input { 
+
+}
+
+.button {
+
+}
+
+.output {
+
+}
+
+.displayinput {
+
 }
