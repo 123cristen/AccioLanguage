@@ -8,10 +8,10 @@
 <body>
     <h1>{{ title }}</h1>
     <a href="/">Home</a>
-<form action="/answers" method="POST">
+<form action="/keyAnswers" method="POST">
     <p> What are you thinking? Say it, We'll know the topic of your input!</p>
-    <input rows="4" cols="50" name='text'>
-	<!-- <textarea rows="4" cols="50" id="answerID" name="answer">Enter text here...</textarea> -->
-	<input type="submit" value="Submit!" />
+	<textarea name="text" rows="10" cols="80"></textarea>
+    <div></div>
+	<input type="submit" value="Get key phrases!" />
 </form>
 </body>

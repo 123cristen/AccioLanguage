@@ -1,7 +1,7 @@
 #flasky.py
 import main
 from keyphrases import *
-
+from language import *
 from flask import render_template, Flask, request
 app = Flask(__name__)
 
@@ -21,13 +21,9 @@ def language():
 
 @app.route("/keyphrases")
 def keyphrases():
-  input_texts = '{"documents":[{"id":"1","text":"hola como estas?"},{"id":"2","text":"was ist das genau?"},{"id":"three","text":"hello my world"},]}'
-
-  # result=keyPhrases_setup(input_texts)
   return render_template(
     'keyphrases.html',
-    # body=result,
-    title='AccioLanguage | Key Phrases',
+    title='AccioLanguage | Key Phrases Detection',
   )
 
 @app.route("/sentiment")
@@ -38,15 +34,22 @@ def sentiment():
   )
 
 
-@app.route('/answers', methods=['POST'])
-def key_report():
+@app.route('/keyAnswers', methods=['POST'])
+def getKeyPhrases():
     text = request.form['text']
-    text = text.upper()
     output = get_keyPhrases(text)
-    # return output
     return render_template(
-      'keyreport.html',
-      title='AccioLanguage | Key Phrases | Report',
+      'showKeyPhrases.html',
+      title='AccioLanguage | Key Phrases Detection',
+      answers= output,
+    )
+@app.route('/languageAnswers', methods=['POST'])
+def getLanguage():
+    text = request.form['text']
+    output = get_language(text)
+    return render_template(
+      'showLanguage.html',
+      title='AccioLanguage | Language Detection',
       answers= output,
     )
 
