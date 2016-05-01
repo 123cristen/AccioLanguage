@@ -1,5 +1,11 @@
 * {
 	text-decoration: none;
+	/*font-family:  "Lucida Console", Courier, monospace;*/
+	/*font-family: fantasy;*/
+	/*font-family: Verdana, Arial, Helvetica, sans-serif;*/
+	/*font-family: "Lucida Handwriting", cursive;*/
+	font-family: 'Tangerine', serif;
+	font-size: 50px;
 }
 
 a.active {
@@ -12,4 +18,6 @@ a.active {
 
 a:hover {
 	color: blue;
+	font-variant: bold;
 }
+
