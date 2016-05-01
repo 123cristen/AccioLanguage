@@ -3,21 +3,25 @@
 	<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accio | {{ title }}</title>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Tangerine|Bree+Serif">
+    <link href="https://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple|canvas-print" 
+        rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
-	</head>
+    </head>
 	<body>
-    <h1 id="logo"><a href="/">Accio</a></h1>
-    <ul class="navigation">
+    <h1 ><a id="logo" class="font-effect-canvas-print" href="/">Accio</a></h1>    
+    <ul class="font-effect-shadow-multiple navigation">
         <li><a href="keyphrases">Keyphrases</a></li>
         <li><a href="language" class="active">Language</a></li>
         <li><a href="sentiment">Sentiment</a></li>
     </ul>
-    <p class="info"> What are you thinking? Say it, We'll know the topic of your input!</p>
+    <p class="info"> What language is this? Enter any text in and we'll tell you!</p>
 		<form action="/languageAnswers" method="POST">
 			<textarea class="input" name="text" rows="10" cols="80"></textarea>
 		  <div></div>
-			<input class="button" type="submit" value="Get language!" />
+			<input class="button" type="submit" value="Accio language!" />
 		</form>
 	</body>
 </html>

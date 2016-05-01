@@ -6,6 +6,7 @@
 	/*font-family: "Lucida Handwriting", cursive;*/
 	/*font-family: 'Bree Serif', serif;*/
 	/*font-size: 50px;*/
+	padding: 0px 10px;
 }
 a {
 	font-family: 'Bree Serif', serif;
@@ -19,6 +20,7 @@ a {
 }
 .font-effect-shadow-multiple {
 	text-decoration: none;
+	/*background-color: lightblue;*/
 }
 a.active {
 	color: green;
@@ -31,6 +33,7 @@ a:hover {
 
 .navigation li {
 	display: inline-block;
+	padding: 5px;
 }
 
 .info {
@@ -39,17 +42,19 @@ a:hover {
 }
 
 .input { 
-
+	font-family: 'Bree Serif', serif;
 }
 
 .button {
-
+	font-family: 'Bree Serif', serif;
 }
 
 .output {
-
+	font-family: 'Bree Serif', serif;
+	font-size: 20px;
 }
 
 .displayinput {
-
+	font-family: 'Bree Serif', serif;
+	font-size: 20px;
 }

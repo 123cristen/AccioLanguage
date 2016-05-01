@@ -1,13 +1,9 @@
-#flasky.py
-import main
-import urllib
-import urllib2
-import json
+# routes.py
 from sentiment import *
 from keyphrases import *
 from language import *
 
-from flask import render_template, Flask, request
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -15,28 +11,28 @@ app = Flask(__name__)
 def home():
 	return render_template(
 		'index.html',
-		title='Accio',
+		title = 'Accio',
 	)
 
 @app.route("/language")
 def language():
 	return render_template(
 		'language.html',
-		title='Language Detection',
+		title = 'Language Detection',
 	)
 
 @app.route("/keyphrases")
 def keyphrases():
   return render_template(
     'keyphrases.html',
-    title='Key Phrase Detection',
+    title = 'Key Phrase Detection',
   )
 
 @app.route("/sentiment")
 def sentiment():
 	return render_template(
 		'sentiment.html',
-		title='Sentiment Detection',
+		title = 'Sentiment Detection',
 	)
 
 @app.route("/show_sentiment", methods=['POST'])
@@ -45,33 +41,33 @@ def show_sentiment():
 	output = get_sentiment(text);
 	return render_template(
 		'show_sentiment.html',
-		title='Sentiment Detection Results',
+		title = 'Sentiment Detection Results',
 		score = output,
 		text = text,
 	)
 
 @app.route('/keyAnswers', methods=['POST'])
 def getKeyPhrases():
-    text = request.form['text']
-    output = get_keyPhrases(text)
-    return render_template(
-      'showKeyPhrases.html',
-      title ='Key Phrase Results',
-      answers = output,
-      text = text,
-    )
+  text = request.form['text']
+  output = get_keyPhrases(text)
+  return render_template(
+    'showKeyPhrases.html',
+    title = 'Key Phrase Results',
+    answers = output,
+    text = text,
+  )
 
 @app.route('/languageAnswers', methods=['POST'])
 def getLanguage():
-    text = request.form['text']
-    output = get_language(text)
-    return render_template(
-      'showLanguage.html',
-      title ='Language Detection Results',
-      answers = output,
-      text = text,
-    )
+  text = request.form['text']
+  output = get_language(text)
+  return render_template(
+    'showLanguage.html',
+    title = 'Language Detection Results',
+    answers = output,
+    text = text,
+  )
 
 if __name__ == "__main__":
-    app.debug=True
+    app.debug = True
     app.run()
