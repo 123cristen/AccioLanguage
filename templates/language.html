@@ -5,8 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
 </head>
-
 <body>
     <h1>{{ title }}</h1>
     <a href="/">Home</a>
+<form action="/languageAnswers" method="POST">
+    <p> What are you thinking? Say it, We'll know the topic of your input!</p>
+	<textarea name="text" rows="10" cols="80"></textarea>
+    <div></div>
+	<input type="submit" value="Get language!" />
+</form>
 </body>

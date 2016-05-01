@@ -1,36 +1,76 @@
 #flasky.py
 import main
+import urllib
+import urllib2
+import json
+from sentiment import *
+from keyphrases import *
+from language import *
 
-from flask import render_template, Flask
+from flask import render_template, Flask, request
+
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-  return render_template(
-    'index.html',
-    title='AccioLanguage',
-  )
+	return render_template(
+		'index.html',
+		title='Accio',
+	)
 
 @app.route("/language")
 def language():
-  return render_template(
-    'language.html',
-    title='AccioLanguage | Language Detection',
-  )
+	return render_template(
+		'language.html',
+		title='Language Detection',
+	)
 
 @app.route("/keyphrases")
 def keyphrases():
   return render_template(
     'keyphrases.html',
-    title='AccioLanguage | Key Phrases',
+    title='Key Phrase Detection',
   )
 
 @app.route("/sentiment")
 def sentiment():
-  return render_template(
-    'sentiment.html',
-    title='AccioLanguage | Sentiment Detection',
-  )
+	return render_template(
+		'sentiment.html',
+		title='Sentiment Detection',
+	)
+
+@app.route("/show_sentiment", methods=['POST'])
+def show_sentiment():
+	text = request.form['text_input']
+	result = get_sentiment(text);
+	return render_template(
+		'show_sentiment.html',
+		title='Sentiment Detection Results',
+		score = result,
+		text = text,
+	)
+
+
+@app.route('/keyAnswers', methods=['POST'])
+def getKeyPhrases():
+    text = request.form['text']
+    output = get_keyPhrases(text)
+    return render_template(
+      'showKeyPhrases.html',
+      title='Key Phrase Results',
+      answers= output,
+    )
+
+@app.route('/languageAnswers', methods=['POST'])
+def getLanguage():
+    text = request.form['text']
+    output = get_language(text)
+    return render_template(
+      'showLanguage.html',
+      title='Language Detection Results',
+      answers= output,
+    )
 
 if __name__ == "__main__":
+    app.debug=True
     app.run()
