@@ -4,8 +4,11 @@ import urllib
 import urllib2
 import json
 from sentiment import *
+from keyphrases import *
+from language import *
 
-from flask import render_template, request, Flask
+from flask import render_template, Flask, request
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -19,15 +22,15 @@ def home():
 def language():
 	return render_template(
 		'language.html',
-		title='AccioLanguage | Language Detection',
+		title='Language Detection',
 	)
 
 @app.route("/keyphrases")
 def keyphrases():
-	return render_template(
-		'keyphrases.html',
-		title='AccioLanguage | Key Phrases',
-	)
+  return render_template(
+    'keyphrases.html',
+    title='Key Phrase Detection',
+  )
 
 @app.route("/sentiment")
 def sentiment():
@@ -39,7 +42,6 @@ def sentiment():
 @app.route("/show_sentiment", methods=['POST'])
 def show_sentiment():
 	text = request.form['text_input']
-	#json_input = '{"documents":["text":"'+text+'"]}'
 	result = get_sentiment(text);
 	return render_template(
 		'show_sentiment.html',
@@ -48,6 +50,27 @@ def show_sentiment():
 		text = text,
 	)
 
+
+@app.route('/keyAnswers', methods=['POST'])
+def getKeyPhrases():
+    text = request.form['text']
+    output = get_keyPhrases(text)
+    return render_template(
+      'showKeyPhrases.html',
+      title='Key Phrase Results',
+      answers= output,
+    )
+
+@app.route('/languageAnswers', methods=['POST'])
+def getLanguage():
+    text = request.form['text']
+    output = get_language(text)
+    return render_template(
+      'showLanguage.html',
+      title='Language Detection Results',
+      answers= output,
+    )
+
 if __name__ == "__main__":
-		app.debug = True
-		app.run()
+    app.debug=True
+    app.run()
